@@ -17,7 +17,7 @@ class testing(unittest.TestCase):
         #assert
         self.assertEquals(response_code, 200)
 
-        self.assertEquals(response.content, f'Hello, {user}')
+        self.assertEquals(response.content, 'Hello')
 
     def test_form_and_validation(self):
 
@@ -47,9 +47,9 @@ class testing(unittest.TestCase):
     def test_bartender(self):
 
         #assume
-        user_age_1 =< 10
-        user_age_2 =< 20
-        user_age_3 =< 30
+        user_age_1 <= 10
+        user_age_2 <= 20
+        user_age_3 <= 30
          
         #action
         what_drink1 = calculous.drinks(user_age_1)
