@@ -41,8 +41,8 @@ class testing(unittest.TestCase):
         self.assertEquals(response_code, 200)
 
         #it validates
-        self.assertFalse(name_validation)
-        self.assertFalse(age_validation)
+        self.assertTrue(name_validation)
+        self.assertTrue(age_validation)
     
     def test_bartender(self):
 
