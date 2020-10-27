@@ -11,12 +11,8 @@ class testing(unittest.TestCase):
         client = Client()
         response = client.get(reverse('index'))
 
-        #action
-        response_code = response.status_code
-
         #assert
-        self.assertEquals(response_code, 200)
-
+        self.assertEquals(response.status_code, 200)
         self.assertEquals(response.content, 'Hello')
 
     def test_form_and_validation(self):
