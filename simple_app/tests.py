@@ -1,14 +1,18 @@
 import unittest
+from django.test import Client
+from django.urls import reverse
+
 
 class testing_app(unittest.TestCase):
 
     def test_simple(self):    
     
         #assume
-        x = True
+        client = Client()
+        response = client.get(reverse('index'))
     
         #action
-        result = x
+        result = response.status_code
     
         #assert
-        self.assertFalse(result)
+        self.assertEquals(result, 200)
