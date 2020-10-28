@@ -13,8 +13,6 @@ class testing(unittest.TestCase):
         self.validator = Validator()
         self.user = User('Simple', 'Name', 15)
     
-    def tearDown(self):
-        pass
 
     def test_index_and_greeting(self):    
     
