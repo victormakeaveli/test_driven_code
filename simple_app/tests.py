@@ -4,14 +4,14 @@ from django.test import Client
 from django.urls import reverse
 
 
+
 class testing(unittest.TestCase):
 
     #assume
     def setUp(self):
         self.client = Client()
         self.validator = Validator()
-        self.username = 'Normal'
-        self.user_age = 15
+        self.user = User('Simple', 'Name', 15)
     
     def tearDown(self):
         pass
@@ -29,8 +29,7 @@ class testing(unittest.TestCase):
         response_code = self.response.status_code
 
         #**validator will be a function inside the app**
-        name_validation = validator.username_is_valid(self.username)
-        age_validation = validator.user_age_is_valid(self.user_age)
+        name_validation = validator.user_is_valid(self.username)
         
         #assert
         #the url is ok
@@ -38,20 +37,19 @@ class testing(unittest.TestCase):
 
         #it validates
         with self.assertTrue:
-            name_validation
-            age_validation
+            self.user
 
         with self.assertRaises(ValueError):
-             name_validation, int 
-             age_validation, str 
+             self.user.name, int
+             self.user.age, str
 
 
     def test_bartender(self):
 
         #assume
-        user_age_less < self.user_age
-        user_age_equal = self.user_age
-        user_age_more > self.user_age
+        user_age_less < self.user.age
+        user_age_equal = self.user.age
+        user_age_more > self.user.age
          
         #action
         #**calculous will be a function inside the app**
