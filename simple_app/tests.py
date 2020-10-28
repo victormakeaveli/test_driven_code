@@ -3,14 +3,13 @@ import unittest
 from django.test import Client
 from django.urls import reverse
 
-
-
 class testing(unittest.TestCase):
 
     #assume
     def setUp(self):
         self.client = Client()
         self.validator = Validator()
+        self.self.calculous = self.Calculous()
         self.user = User('Simple', 'Name', 15)
     
 
@@ -21,13 +20,14 @@ class testing(unittest.TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.content, 'Hello')
 
+
     def test_form_and_validation(self):
 
         self.response = self.client.get(reverse('form'))
         response_code = self.response.status_code
 
         #**validator will be a function inside the app**
-        name_validation = validator.user_is_valid(self.username)
+        name_validation = self.validator.user_is_valid(self.username)
         
         #assert
         #the url is ok
@@ -51,9 +51,9 @@ class testing(unittest.TestCase):
          
         #action
         #**calculous will be a function inside the app**
-        what_drink_less = calculous.drinks(user_age_less)
-        what_drink_equal = calculous.drinks(user_age_equal)
-        what_drink_more = calculous.drinks(user_age_more)
+        what_drink_less = self.calculous.drinks(user_age_less)
+        what_drink_equal = self.calculous.drinks(user_age_equal)
+        what_drink_more = self.calculous.drinks(user_age_more)
 
         #assert
         self.assertEqual(what_drink_less, 'milk')
