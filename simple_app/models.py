@@ -2,12 +2,15 @@ from django.db import models
 
 
 class Users(models.Model):
+    
+    age = models.DecimalField(max_digits=2,decimal_places=2)
+    name = models.CharField(max_length=30)
 
     def __init__(self, name, age, drink):
-        self.name = models.CharField(max_length=30)
-        self.age = models.DecimalField(max_digits=2)
+        self.name = name
+        self.age = age
         self.drink = None
-
+        
     def user(self):
         pass
 
