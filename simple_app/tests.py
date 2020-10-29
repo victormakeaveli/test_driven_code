@@ -3,13 +3,15 @@ import unittest
 from django.test import Client
 from django.urls import reverse
 
-class testing(unittest.TestCase):
+import models
+
+class Testing(unittest.TestCase):
 
     #assume
     def setUp(self):
         self.client = Client()
         self.validator = Validator()
-        self.self.calculous = self.Calculous()
+        self.calculous = self.Calculous()
         self.user = User('Simple', 'Name', 15)
     
 
@@ -19,7 +21,7 @@ class testing(unittest.TestCase):
         
         self.assertEquals(response.status_code, 200)
         self.assertEquals(response.content, 'Hello')
-
+    
 
     def test_form_and_validation(self):
 
@@ -33,13 +35,13 @@ class testing(unittest.TestCase):
         #the url is ok
         self.assertEquals(response_code, 200)
 
-        #it validates
+        #it validates 
         with self.assertTrue:
-            self.user
+            self.
 
         with self.assertRaises(ValueError):
-             self.user.name, int
-             self.user.age, str
+            self.user.name, int
+            self.user.age, str
 
 
     def test_bartender(self):
@@ -48,15 +50,15 @@ class testing(unittest.TestCase):
         user_age_less < self.user.age
         user_age_equal = self.user.age
         user_age_more > self.user.age
-         
+
         #action
         #**calculous will be a function inside the app**
-        what_drink_less = self.calculous.drinks(user_age_less)
-        what_drink_equal = self.calculous.drinks(user_age_equal)
-        what_drink_more = self.calculous.drinks(user_age_more)
+        which_drink_less = self.calculous.drinks(user_age_less)
+        which_drink_equal = self.calculous.drinks(user_age_equal)
+        which_drink_more = self.calculous.drinks(user_age_more)
 
         #assert
-        self.assertEqual(what_drink_less, 'milk')
-        self.assertEqual(what_drink_equal, 'coca-cola')
-        self.assertEqual(what_drink_more, 'vodka')
+        self.assertEqual(which_drink_less, 'milk')
+        self.assertEqual(which_drink_equal, 'coca-cola')
+        self.assertEqual(which_drink_more, 'vodka')
 
