@@ -3,16 +3,17 @@ import unittest
 from django.test import Client
 from django.urls import reverse
 
-import models
-
+from .models import Users
 class Testing(unittest.TestCase):
 
     #assume
     def setUp(self):
+
         self.client = Client()
+
+        self.user = Users()
         self.validator = Validator()
-        self.calculous = self.Calculous()
-        self.user = User('Simple', 'Name', 15)
+        self.calculous = Calculous()
     
 
     def test_index_and_greeting(self):    
@@ -23,9 +24,9 @@ class Testing(unittest.TestCase):
         self.assertEquals(response.content, 'Hello')
     
 
-    def test_form_and_validation(self):
+    def test_user_validation(self):
 
-        self.response = self.client.get(reverse('form'))
+        response = self.client.get(reverse('form'))
         response_code = self.response.status_code
 
         #**validator will be a function inside the app**
@@ -36,9 +37,6 @@ class Testing(unittest.TestCase):
         self.assertEquals(response_code, 200)
 
         #it validates 
-        with self.assertTrue:
-            self.
-
         with self.assertRaises(ValueError):
             self.user.name, int
             self.user.age, str
@@ -47,16 +45,16 @@ class Testing(unittest.TestCase):
     def test_bartender(self):
 
         #assume
-        user_age_less < self.user.age
+        user_age_less = self.user.age
         user_age_equal = self.user.age
         user_age_more > self.user.age
 
         #action
         #**calculous will be a function inside the app**
-        which_drink_less = self.calculous.drinks(user_age_less)
-        which_drink_equal = self.calculous.drinks(user_age_equal)
-        which_drink_more = self.calculous.drinks(user_age_more)
-
+        which_drink_less = self.calculous(user_age_less)
+        which_drink_equal = self.calculous(user_age_equal)
+        which_drink_more = self.calculous(user_age_more)
+                
         #assert
         self.assertEqual(which_drink_less, 'milk')
         self.assertEqual(which_drink_equal, 'coca-cola')
