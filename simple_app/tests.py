@@ -16,7 +16,8 @@ class Testing(TestCase):
         self.client = Client()
 
         self.user = Users()
-        self.user.name = 1
+        self.user.name = 'victor'
+        self.user.age = 22
         # self.calculous = calculous()
     
 
@@ -25,35 +26,48 @@ class Testing(TestCase):
         response = self.client.get(reverse('index'))
         
         self.assertEquals(response.status_code, 200)
+        self.assertContains(response, "hello")
 
         #gabriel help
         # print(dir(response))
         # self.AssertEquals(json.loads(response.content), "hello")
         #
+class Testing_1(unittest.TestCase):
 
-        self.assertContains(response, "hello")
+    #assume
+    def setUp(self):
+
+        self.client = Client()
+
+        self.user = Users()
+        self.user.name = 'victor'
+        self.user.age = 22
+        # self.calculous = calculous()
     
+    def test_name_validation(self):
+        self.assertIsInstance(self.user.name, str)
 
-    def test_name(self):
-        if self.user.name != str:
-            self.assertRaises(ValueError)
+    def test_age_validation(self):
+        self.assertIsInstance(self.user.age, int)
+
+    #     print(type(self.user.name))
+    #     with self.assertRaises(ValueError):
+    #         self.user.name != str
 
 
-    def test_form(self):
+    # def test_form(self):
 
-        #assume
-        name = self.user.name
-        age = self.user.age
-        # response = self.client.get(reverse('form'))
-        # response_code = self.response.status_code
 
-        # #**validator will be a function inside the app**
-        # name_validation = self.validator.user_is_valid(self.username)
+    #     response = self.client.get(reverse('form'))
+    #     response_code = self.response.status_code
+
+    #     #**validator will be a function inside the app**
+    #     name_validation = self.validator.user_is_valid(self.username)
         
-        # #assert
-        # #the url is ok
-        # self.assertEquals(response_code, user200)
-        #it validates 
+    #     #assert
+    #     #the url is ok
+    #     self.assertEquals(response_code, 200)
+    #     it validates 
 
 
     # def test_bartender(self):
@@ -73,3 +87,6 @@ class Testing(TestCase):
     #     self.assertEqual(which_drink_less, 'milk')
     #     self.assertEqual(which_drink_equal, 'coca-cola')
     #     self.assertEqual(which_drink_more, 'vodka')
+
+if __name__ == '__main__':
+    unittest.main()

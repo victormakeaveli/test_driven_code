@@ -6,7 +6,9 @@ name = "pypi"
 [packages]
 Django = "*"
 "python3.9" = "*"
-python = "==3.9"
+python = "*"
+pytest = "*"
+xpytest = "*"
 
 [dev-packages]
 
