@@ -88,5 +88,5 @@ class Testing_1(unittest.TestCase):
     #     self.assertEqual(which_drink_equal, 'coca-cola')
     #     self.assertEqual(which_drink_more, 'vodka')
 
-if __name__ == '__main__':
-    unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
